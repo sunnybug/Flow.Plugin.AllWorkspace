@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "附加到 Flow Launcher（调试插件）",
+      "type": "coreclr",
+      "request": "attach",
+      "processName": "Flow.Launcher"
+    },
+    {
+      "name": "启动 Flow Launcher（工作目录 .run）",
+      "type": "node-terminal",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/.run",
+      "command": "Start-Process (Join-Path $env:LOCALAPPDATA 'FlowLauncher\\Flow.Launcher.exe')"
+    }
+  ]
+}

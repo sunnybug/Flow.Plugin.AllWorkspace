@@ -1,0 +1,1 @@
+{"ID":"2bae4bd054bf174b0c38fc7c6cb7d1d5","ActionKeyword":"cu","Name":"AllWorkspace","Description":"支持Cursor/VSCode/Trae等IDE，快速打开SSH/最近打开目录","Author":"sunnybug","Version":"1.0.0","Language":"csharp","Website":"https://github.com/sunnybug/Flow.Launcher.Plugin.AllWorkspace","IcoPath":"icon.png","ExecuteFileName":"Flow.Launcher.Plugin.AllWorkspace.dll"}

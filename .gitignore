@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Project layout: build/output and local release
+.temp/
+.dist/
+.run/log/
+.run/config/
+
 # User-specific files
 *.rsuser
 *.suo

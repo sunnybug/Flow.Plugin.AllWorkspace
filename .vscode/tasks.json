@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-debug",
+      "type": "shell",
+      "command": "powershell",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/script/build.ps1"],
+      "group": "build",
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "install-plugin-debug",
+      "type": "shell",
+      "command": "powershell",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/script/install_plugin.ps1", "-Configuration", "Debug"],
+      "group": "build",
+      "presentation": { "reveal": "always" }
+    }
+  ]
+}
