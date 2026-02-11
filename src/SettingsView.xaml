@@ -1,0 +1,62 @@
+<UserControl
+    x:Class="Flow.Launcher.Plugin.AllWorkspace.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Height="380"
+    mc:Ignorable="d">
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="14,8">
+            <CheckBox
+                Margin="0,4"
+                Content="发现最近打开的工作区"
+                IsChecked="{Binding DiscoverWorkspaces}"
+                ToolTip="从各 IDE 的 storage.json / state.vscdb 读取最近打开目录"
+                Checked="Save"
+                Unchecked="Save"/>
+            <CheckBox
+                Margin="0,4"
+                Content="发现 SSH 远程机器"
+                IsChecked="{Binding DiscoverMachines}"
+                ToolTip="从 SSH config 读取主机列表"
+                Checked="Save"
+                Unchecked="Save"/>
+            <CheckBox
+                Margin="0,4"
+                Content="区分 IDE（按触发关键字只显示对应 IDE 的列表）"
+                IsChecked="{Binding DistinguishByIde}"
+                ToolTip="不勾选：任意关键字均显示所有 IDE 的最近打开与 SSH；勾选：cu 仅 Cursor，tr 仅 Trae，vsc 仅 VS Code"
+                Checked="Save"
+                Unchecked="Save"/>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Margin="14,8,14,0" Text="自定义工作区 URI（可选）" FontWeight="SemiBold"/>
+        <ListView
+            x:Name="listView"
+            Grid.Row="2"
+            Margin="14,4,14,0"
+            BorderBrush="DarkGray"
+            BorderThickness="1"
+            ItemsSource="{Binding CustomWorkspaces}"
+            SelectionMode="Extended">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto" Header="folderUri / file path"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <DockPanel Grid.Row="3" Margin="14,4,14,10">
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button MinWidth="80" Margin="8" Click="ButtonAdd_Click" Content="添加"/>
+                <Button MinWidth="80" Margin="8,8,0,8" Click="ButtonDelete_Click" Content="删除"/>
+            </StackPanel>
+            <TextBox x:Name="addUri" Margin="0,8,8,8" ToolTip="输入文件夹路径或 vscode/cursor 的 folder URI"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

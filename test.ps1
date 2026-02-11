@@ -1,4 +1,4 @@
-﻿# 功能说明：1) 编译 build.ps1 默认 Debug、传参 -Release 为 Release 2) 强杀目标程序 3) 清除运行日志 4) 插件则安装到目标程序 5) 启动目标程序
+# 功能说明：1) 编译 build.ps1 默认 Debug、传参 -Release 为 Release 2) 强杀目标程序 3) 清除运行日志 4) 插件则安装到目标程序 5) 启动目标程序
 # 编码：UTF-8 BOM，行尾：CRLF
 
 param(
@@ -87,3 +87,4 @@ if (Test-Path $TargetExe) {
 }
 Write-Host ""
 Write-Host "完成. 工作目录: $Run" -ForegroundColor Cyan
+Set-Location $Root
